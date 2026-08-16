@@ -51,7 +51,7 @@ export default function Home() {
               className="hidden md:flex items-center gap-2 bg-[#25D366] text-slate-950 px-6 py-2.5 rounded-sm font-bold hover:bg-[#1fbd58] transition-colors shadow-lg shadow-[#25D366]/20"
             >
               <MessageCircle className="w-4 h-4" />
-              Chat on WhatsApp
+              Enquire on WhatsApp
             </a>
           </div>
         </div>

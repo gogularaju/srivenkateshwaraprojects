@@ -1,22 +1,35 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ShieldCheck, HardHat, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ShieldCheck, Building2, Activity, Factory, Plane, Laptop, Video, User, MapPin, ChevronLeft } from 'lucide-react';
 import { CONTACT } from '../config/constants';
 
 // Array of high-end construction & earthworks site images for the carousel
 const siteImages = [
   {
-    url: "earth-excavation-service.png",
+    url: "/earth-excavation-service.png",
     alt: "Heavy Excavation & Site Preparation"
   },
   {
-    url: "https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    url: "/carousel-1.jpg",
     alt: "Massive Scale Land Leveling"
   },
   {
-    url: "https://images.unsplash.com/photo-1541888086925-ebbc31bc1eb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    url: "/carousel-2.jpg",
     alt: "Industrial Groundwork Operations"
   }
+];
+
+const clients = [
+  { name: "Tech Mahindra", location: "Hi-Tech City", icon: Laptop, color: "text-blue-600 bg-blue-50 border-blue-100" },
+  { name: "L&T Projects", location: "Shamshabad", icon: ShieldCheck, color: "text-emerald-600 bg-emerald-50 border-emerald-100" },
+  { name: "CMC Projects", location: "Gachibowli & Shamshabad", icon: Building2, color: "text-amber-600 bg-amber-50 border-amber-100" },
+  { name: "Omega Hospital", location: "Banjara Hills", icon: Activity, color: "text-rose-600 bg-rose-50 border-rose-100" },
+  { name: "Amar Raja Group", location: "Terminal A, Nanakramguda", icon: Factory, color: "text-indigo-600 bg-indigo-50 border-indigo-100" },
+  { name: "RBR Int. Airport", location: "Bangalore", icon: Plane, color: "text-sky-600 bg-sky-50 border-sky-100" },
+  { name: "TV5 Cellar", location: "Banjara Hills", icon: Video, color: "text-purple-600 bg-purple-50 border-purple-100" },
+  { name: "Anil KDR", location: "Banjara Hills", icon: User, color: "text-teal-600 bg-teal-50 border-teal-100" },
+  { name: "R Balram Reddy", location: "Shamshabad", icon: Plane, color: "text-cyan-600 bg-cyan-50 border-cyan-100" },
+  { name: "Surya Latha Pvt", location: "Kalavakurthi", icon: MapPin, color: "text-orange-600 bg-orange-50 border-orange-100" }
 ];
 
 export default function Hero() {
@@ -55,11 +68,6 @@ export default function Hero() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-6 flex flex-col items-start"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 text-xs font-black tracking-widest uppercase mb-6">
-                <HardHat className="w-4 h-4" />
-                Sri Venkateswara Projects
-              </div>
-              
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 mb-6 leading-[1.05] tracking-tight">
                 Scale. <br />
                 Precision. <br />
@@ -112,7 +120,7 @@ export default function Hero() {
                   />
                 </AnimatePresence>
 
-                {/* Carousel Navigation Arrows (Visible on Hover / Always on Mobile) */}
+                {/* Carousel Navigation Arrows */}
                 <button 
                   onClick={prevSlide}
                   className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-950/60 backdrop-blur-md text-white flex items-center justify-center opacity-80 hover:opacity-100 hover:bg-slate-950 transition-all z-20"
@@ -155,6 +163,53 @@ export default function Hero() {
             </motion.div>
 
           </div>
+        </div>
+      </section>
+
+      {/* Client Showcase Grid */}
+      <section className="py-24 bg-white border-t border-slate-200 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="h-[2px] w-12 bg-amber-500"></div>
+                <span className="text-slate-500 text-xs font-bold tracking-widest uppercase">
+                  Our Portfolio
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                Trusted by <br />
+                <span className="text-amber-500">Industry Leaders.</span>
+              </h2>
+            </div>
+            <p className="text-slate-500 font-medium max-w-sm md:text-right leading-relaxed">
+              We are the groundwork partner of choice for major corporate campuses, international airports, and multi-specialty hospitals.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border-t border-l border-slate-200 shadow-sm rounded-lg overflow-hidden">
+            {clients.map((client, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="group relative flex flex-col items-center text-center p-8 border-r border-b border-slate-200 bg-white hover:bg-slate-50/80 transition-all duration-300"
+              >
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 border shadow-sm group-hover:scale-110 transition-transform duration-300 ${client.color}`}>
+                  <client.icon className="w-7 h-7" strokeWidth={2} />
+                </div>
+                
+                <h3 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{client.name}</h3>
+                <p className="text-xs text-slate-500 font-medium">{client.location}</p>
+                
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </section>
 

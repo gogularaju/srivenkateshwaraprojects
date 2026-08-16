@@ -1,11 +1,15 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import AdminQuotationGenerator from './components/AdminQuotationGenerator';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Home />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* Secret URL only you know */}
+        <Route path="/admin/quote" element={<AdminQuotationGenerator />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

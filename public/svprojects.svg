@@ -1,7 +1,39 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="45" fill="none" stroke="#F59E0B" stroke-width="8" />
-  <path d="M 30,35 L 50,70 L 70,35" fill="none" stroke="#D97706" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
-  <path d="M 70,25 C 60,25 50,35 50,50 C 50,65 40,75 30,75" fill="none" stroke="#3B82F6" stroke-width="12" stroke-linecap="round" />
-  <path d="M 40,25 Q 45,15 50,25" fill="#64748B" />
-  <path d="M 60,25 Q 55,15 50,25" fill="#0EA5E9" />
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Container matching the aesthetic -->
+  <rect width="100%" height="100%" fill="#272B36" />
+
+  <g transform="translate(100, 50)">
+    <!-- Outer Hexagon Badge with Gold/Orange Outline -->
+    <polygon points="150,15 270,85 270,225 150,295 30,225 30,85" 
+             fill="#181B22" 
+             stroke="#F5A623" 
+             stroke-width="14" 
+             stroke-linejoin="round" />
+
+    <!-- Cyan/Blue 'W' Shape -->
+    <path d="M 65,115 L 115,225 L 150,155" 
+          fill="none" 
+          stroke="#26A6D1" 
+          stroke-width="28" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+
+    <!-- Gold/Orange 'W' Shape overlapping -->
+    <path d="M 150,155 L 185,225 L 235,115" 
+          fill="none" 
+          stroke="#F5A623" 
+          stroke-width="28" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+
+    <!-- Central White Connecting Dot -->
+    <circle cx="150" cy="225" r="11" fill="#FFFFFF" />
+
+    <!-- Subtle Bottom Curved Terrain Line -->
+    <path d="M 85,245 Q 150,270 215,245" 
+          fill="none" 
+          stroke="#111318" 
+          stroke-width="8" 
+          stroke-linecap="round" />
+  </g>
 </svg>
